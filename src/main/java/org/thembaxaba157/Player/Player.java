@@ -2,15 +2,19 @@ package org.thembaxaba157.Player;
 
 public interface Player {
     
-    enum Options{
-        ROCK,PAPER,SCISSOR
+    enum Weapon{
+        ROCK,PAPER,SCISSORS
     }
 
 
     int getScore();
     
-    Options pickObject();
+    Weapon pickObject();
 
-    Options generateRandomObject();
+    Weapon generateRandomObject();
+
+    Weapon getWeaponEnum(String input);
+
+    String getName();
 
 }

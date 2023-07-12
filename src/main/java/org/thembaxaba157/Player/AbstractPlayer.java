@@ -5,8 +5,10 @@ import java.util.Random;
 public abstract class AbstractPlayer implements Player {
     
     private int score = 0;
-    public Options generateRandomObject() {
-        Options[] values = Options.values();
+    protected String name;
+
+    public Weapon generateRandomObject() {
+        Weapon[] values = Weapon.values();
         int length = values.length;
         int randIndex = new Random().nextInt(length);
         return values[randIndex];
@@ -14,6 +16,16 @@ public abstract class AbstractPlayer implements Player {
 
     public int getScore(){
         return score;
+    }
+
+    public Weapon getWeaponEnum(String stringWeapon){
+        if(stringWeapon.equals("rock")) return Weapon.ROCK;
+        if(stringWeapon.equals("scissors")) return Weapon.SCISSORS;
+        return Weapon.PAPER;
+    }
+
+    public String getName(){
+        return this.name;
     }
 
 }
