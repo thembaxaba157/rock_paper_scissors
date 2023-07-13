@@ -1,17 +1,17 @@
 package org.thembaxaba157.Game.Type;
 
-import org.thembaxaba157.Game.Game;
+import org.thembaxaba157.Game.AbstractGame;
 
-public class Group extends Game {
+public class Group extends AbstractGame {
 
     @Override
-    protected int getNumPlayers() {
+    public int getNumPlayers() {
         while(true){
-            System.out.println("Choose number of players: 1 or 2");
-            int n = gameScanner.nextInt();
-            if(n==1 || n==2){
-                setnumCpu(2-n);
-                return n;
+            // System.out.println("Choose number of players: 1 or 2");
+            int num = gameInput.getInt("Choose number of players: 1-4");
+            if(num>=1 && num<=4){
+                setnumCpu(4-num);
+                return num;
             }
         }
     }
