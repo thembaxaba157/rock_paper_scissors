@@ -8,6 +8,7 @@ public interface Game {
     void CreatePlayers(int numPlayers);
     int getNumCpu();
     void CreateCPUPlayers();
+    void pickNumberRounds();
     void run();
 
     

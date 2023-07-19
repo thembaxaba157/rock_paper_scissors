@@ -16,6 +16,9 @@ public class Classic extends AbstractGame {
         }
     }
 
+    public Classic(){
+        super();
+    }
     
 
     
