@@ -6,6 +6,10 @@ public interface Player {
         ROCK,PAPER,SCISSORS
     }
 
+    enum PlayerType{
+        CPU,HUMAN
+    }
+
 
     int getScore();
     
@@ -16,5 +20,7 @@ public interface Player {
     Weapon getWeaponEnum(String input);
 
     String getName();
+
+    PlayerType getPlayerType();
 
 }

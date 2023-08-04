@@ -10,6 +10,11 @@ public class Human extends AbstractPlayer {
 
     private ArrayList<String> availWeapons = new ArrayList<>();
     
+    
+    public Human(String name){
+        super(name);
+    }
+
     private Weapon getInput(){
         while(true){
             System.out.println("Choose your weapon");
@@ -17,9 +22,15 @@ public class Human extends AbstractPlayer {
             if(availWeapons.contains(humanInput)) return getWeaponEnum(humanInput);
         }
     }
+
+
     @Override
     public Weapon pickObject() {
         return getInput();
+    }
+    @Override
+    public PlayerType getPlayerType() {
+        return PlayerType.HUMAN;
     }
     
 }

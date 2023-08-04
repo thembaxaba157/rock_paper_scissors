@@ -7,12 +7,18 @@ public abstract class AbstractPlayer implements Player {
     private int score = 0;
     protected String name;
 
-    public Weapon generateRandomObject() {
+    public AbstractPlayer(String name) {
+        this.name = name;
+	}
+
+
+	public Weapon generateRandomObject() {
         Weapon[] values = Weapon.values();
         int length = values.length;
         int randIndex = new Random().nextInt(length);
         return values[randIndex];
     }
+
 
     public int getScore(){
         return score;

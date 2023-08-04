@@ -5,14 +5,20 @@ import org.thembaxaba157.Player.AbstractPlayer;
 public class CPU extends AbstractPlayer {
 
 
+    public CPU(String name){
+        super(name);
+    }
 
     @Override
     public Weapon pickObject() {
         return generateRandomObject();
     }
 
-    public CPU(String name){
-        this.name = name;
+   
+
+    @Override
+    public PlayerType getPlayerType() {
+        return PlayerType.CPU;
     }
     
 }

@@ -6,12 +6,12 @@ import org.thembaxaba157.Game.Type.Classic;
 import org.thembaxaba157.Game.Type.Group;
 import org.thembaxaba157.Player.Player;
 import org.thembaxaba157.Player.Type.CPU;
+import org.thembaxaba157.Player.Type.Human;
 
 public abstract class AbstractGame implements Game{
 
 
     private HashMap<String,Player> players = new HashMap<String,Player>();
-    private HashMap<String,Player> CPU = new HashMap<String,Player>();
     protected GameInput gameInput = new GameInput();
     private int numCpu;
     private int rounds;
@@ -31,11 +31,27 @@ public abstract class AbstractGame implements Game{
 
     public void CreatePlayers(int numPlayers) {
         for(int i=0;i<numPlayers;i++){
-             
+            while(true){
+            System.out.println("Please enter your name: ");
+            String name = GameInput.getInput();
+            if(isValidName(name)){
+                players.put(name, new Human(name));
+                break;
+            }
+        }
     }
 }
 
-    public int getNumCpu() {
+
+
+
+
+
+   private boolean isValidName(String nam) {
+        return !players.containsKey(nam);
+    }
+
+ public int getNumCpu() {
         return this.numCpu;
     }
     
@@ -76,7 +92,7 @@ public abstract class AbstractGame implements Game{
 
     public void run(){
         while(true){
-
+            
         }
     }
 }
