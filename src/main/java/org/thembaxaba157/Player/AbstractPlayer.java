@@ -6,11 +6,15 @@ public abstract class AbstractPlayer implements Player {
     
     private int score = 0;
     protected String name;
+    protected Weapon latestPickedWeapon;
 
     public AbstractPlayer(String name) {
         this.name = name;
 	}
 
+    public Weapon getLatestPickedWeapon(){
+        return latestPickedWeapon;
+    }
 
 	public Weapon generateRandomObject() {
         Weapon[] values = Weapon.values();

@@ -13,7 +13,9 @@ public interface Player {
 
     int getScore();
     
-    Weapon pickObject();
+    void pickObject();
+
+    Weapon getLatestPickedWeapon();
 
     Weapon generateRandomObject();
 
@@ -22,5 +24,6 @@ public interface Player {
     String getName();
 
     PlayerType getPlayerType();
+
 
 }

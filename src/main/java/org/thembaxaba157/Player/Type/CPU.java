@@ -10,8 +10,8 @@ public class CPU extends AbstractPlayer {
     }
 
     @Override
-    public Weapon pickObject() {
-        return generateRandomObject();
+    public void pickObject() {
+        this.latestPickedWeapon = generateRandomObject();
     }
 
    

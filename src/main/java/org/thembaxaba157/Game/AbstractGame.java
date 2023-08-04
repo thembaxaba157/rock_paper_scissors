@@ -1,6 +1,7 @@
 package org.thembaxaba157.Game;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.thembaxaba157.Game.Type.Classic;
 import org.thembaxaba157.Game.Type.Group;
@@ -14,7 +15,7 @@ public abstract class AbstractGame implements Game{
     private HashMap<String,Player> players = new HashMap<String,Player>();
     protected GameInput gameInput = new GameInput();
     private int numCpu;
-    private int rounds;
+    protected int rounds;
 
     public abstract int getNumPlayers();
 
@@ -27,6 +28,7 @@ public abstract class AbstractGame implements Game{
         int numPlayers = getNumPlayers();
         CreatePlayers(numPlayers);
         CreateCPUPlayers();
+        pickNumberRounds();
     }
 
     public void CreatePlayers(int numPlayers) {
@@ -80,7 +82,6 @@ public abstract class AbstractGame implements Game{
 
     public void pickNumberRounds(){
         while(true){
-            // System.out.println("Choose number of players: 1 or 2");
             int num = gameInput.getInt("Choose number of rounds: 1-8");
             if(num>=1 && num<=8){
                 this.rounds = num;
@@ -92,7 +93,15 @@ public abstract class AbstractGame implements Game{
 
     public void run(){
         while(true){
-            
+            for(int round = 0;round<this.rounds;++round){
+
+                for (Map.Entry<String, Player> entry : this.players.entrySet()) {
+                    Player player = entry.getValue();
+                    player.pickObject();
+                }
+
+                
+            }
         }
     }
 }
