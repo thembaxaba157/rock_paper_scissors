@@ -1,5 +1,7 @@
 package org.thembaxaba157.Player;
 
+import java.util.List;
+
 public interface Player {
     
     enum Weapon{
@@ -12,6 +14,8 @@ public interface Player {
 
 
     int getScore();
+
+    void scoreCalculate(List<Player> players);
     
     void pickObject();
 
