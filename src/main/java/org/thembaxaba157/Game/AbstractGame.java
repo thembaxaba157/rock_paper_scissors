@@ -59,7 +59,7 @@ public abstract class AbstractGame implements Game{
     
     public void CreateCPUPlayers(){
         for(int cpuI = 0;cpuI<getNumCpu();++cpuI){
-            String name = getType()+Integer.toString(cpuI+1);
+            String name = "cpu"+Integer.toString(cpuI+1);
             this.players.put(name, new CPU(name));
         
         }
@@ -96,10 +96,10 @@ public abstract class AbstractGame implements Game{
             for(int round = 0;round<this.rounds;++round){
 
                 for (Map.Entry<String, Player> entry : this.players.entrySet()) {
+                
                     Player player = entry.getValue();
                     player.pickObject();
                 }
-
                 
             }
         }

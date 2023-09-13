@@ -16,9 +16,10 @@ public class Human extends AbstractPlayer {
 
     private Weapon getInput(){
         while(true){
-            System.out.println("Choose your weapon");
+            System.out.println(this.name+" Choose your weapon");
             String humanInput = GameInput.getInput();
             if(isPartOfEnum(humanInput, Player.Weapon.class)) return getWeaponEnum(humanInput);
+            System.out.println("Please pick a correct weapon(scissors,paper,rock)");
         }
     }
 

@@ -25,7 +25,11 @@ public class GameInput {
     }
 
     public static String getInput(){
-        return gameScanner.nextLine();
+            String n = "";
+            while(n.isEmpty()){
+                n = gameScanner.nextLine();
+            }
+            return n;
     }
 
     public void Close(){
