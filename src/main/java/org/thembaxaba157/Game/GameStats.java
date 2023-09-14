@@ -21,6 +21,10 @@ public class GameStats {
         return hiScore;
     }
 
+    public boolean isDraw(){
+        return scoreLeader.size()>1;
+    }
+
     public ArrayList<String> getScoreLeader() {
         return scoreLeader;
     }

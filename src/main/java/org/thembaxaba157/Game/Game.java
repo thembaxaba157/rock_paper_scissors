@@ -10,6 +10,7 @@ public interface Game {
     void CreateCPUPlayers();
     void pickNumberRounds();
     void run();
+    boolean playAgain();
 
     
 }

@@ -9,7 +9,13 @@ import org.thembaxaba157.Game.GameInput;
 public class Main {
         public static void main(String[] args) {
             GameInput.openScanner();
-            Game game = AbstractGame.createGame();
-            game.run();
+            while(true){
+                Game game = AbstractGame.createGame();
+                game.run();
+                if(!game.playAgain());break;
+            }
+            
+            GameInput.closeScanner();
+            
         }
     }

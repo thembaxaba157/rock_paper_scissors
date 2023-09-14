@@ -12,12 +12,16 @@ public class GameInput {
         gameScanner = new Scanner(System.in);
     } 
 
-    public int getInt(String prompt){
+    public static void closeScanner(){
+        gameScanner.close();
+    }
+
+    public int getInt(String promptMessage){
         while(true){
-            System.out.println(prompt);
+            System.out.println(promptMessage);
             try {
-                int n = gameScanner.nextInt();
-                return n;
+                int gameInput = gameScanner.nextInt();
+                return gameInput;
             } catch (Exception e) {
                 System.out.println("Please Enter a valid value");
             }
@@ -25,11 +29,20 @@ public class GameInput {
     }
 
     public static String getInput(){
-            String n = "";
-            while(n.isEmpty()){
-                n = gameScanner.nextLine();
-            }
-            return n;
+        String gameInput = "";
+        while(gameInput.isEmpty()){
+            gameInput = gameScanner.nextLine();
+        }
+        return gameInput;
+    }
+
+    public static boolean isYes(String promptMessage){
+        String gameInput = "";
+        while(!gameInput.equals("n") || !gameInput.equals("y")){
+            gameInput = gameScanner.nextLine();
+        }
+        if(gameInput.equals("n"))return false;
+        return true;
     }
 
     public void Close(){

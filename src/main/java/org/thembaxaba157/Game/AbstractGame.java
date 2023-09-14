@@ -88,23 +88,7 @@ public abstract class AbstractGame implements Game{
     }
 
 
-    public void run(){
-        while(true){
-            for(int round = 0;round<this.rounds;++round){
-
-                for (Map.Entry<String, Player> entry : this.players.entrySet()) {
-                
-                    Player player = entry.getValue();
-                    player.pickObject();
-                }
-                scoreCalculate(this.players);
-                gameStats.showCompleteLeaderboard(this.players);
-
-            }
-        }
-    }
-
-    private void scoreCalculate(HashMap<String, Player> players) {
+     private void scoreCalculate(HashMap<String, Player> players) {
         
         ArrayList<Player> playersList = new ArrayList<>(players.values());
         for (Map.Entry<String, Player> entry : this.players.entrySet()){
@@ -123,4 +107,49 @@ public abstract class AbstractGame implements Game{
         }
 
     }
+
+    public void run(){
+        normalGameFlow();
+        displayResults();
+        if(gameStats.isDraw()){
+            if(GameInput.isYes("Play DeathMatch?(Y/n):")){
+                deathMatchGameFlow();
+            }
+            else{
+                System.out.println("Match ends in a draw");
+            }
+        }
+    
+        
+    }
+
+    @Override
+    public boolean playAgain() {
+        
+        return GameInput.isYes("Want to Play Again?");
+    }
+
+    private void normalGameFlow(){
+        for(int round = 0;round<this.rounds;round++){
+
+            for (Map.Entry<String, Player> entry : this.players.entrySet()) {
+            
+                Player player = entry.getValue();
+                player.pickObject();
+            }
+            scoreCalculate(this.players);
+            gameStats.showCompleteLeaderboard(this.players);
+        }
+
+
+    }
+
+    private void deathMatchGameFlow(){
+
+    }
+
+    private void displayResults() {
+    
+    }
+
 }
