@@ -145,7 +145,11 @@ public abstract class AbstractGame implements Game{
     }
 
     private void deathMatchGameFlow(){
-
+        while(true){
+            this.rounds = 1;
+            normalGameFlow();
+            if(!gameStats.isDraw())break;
+        }
     }
 
     private void displayResults() {

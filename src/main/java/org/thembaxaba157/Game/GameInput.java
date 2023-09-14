@@ -38,7 +38,8 @@ public class GameInput {
 
     public static boolean isYes(String promptMessage){
         String gameInput = "";
-        while(!gameInput.equals("n") || !gameInput.equals("y")){
+        System.out.println(promptMessage);
+        while(!gameInput.equals("n") && !gameInput.equals("y")){
             gameInput = gameScanner.nextLine();
         }
         if(gameInput.equals("n"))return false;
