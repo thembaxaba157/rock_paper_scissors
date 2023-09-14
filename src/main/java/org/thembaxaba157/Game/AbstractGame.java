@@ -1,5 +1,6 @@
 package org.thembaxaba157.Game;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ public abstract class AbstractGame implements Game{
 
     private HashMap<String,Player> players = new HashMap<String,Player>();
     protected GameInput gameInput = new GameInput();
+    protected GameStats gameStats = new GameStats();
     private int numCpu;
     protected int rounds;
 
@@ -100,8 +102,21 @@ public abstract class AbstractGame implements Game{
                     Player player = entry.getValue();
                     player.pickObject();
                 }
-                
+                String results = scoreCalculate(this.players);
+
+
             }
         }
+    }
+
+    private String scoreCalculate(HashMap<String, Player> players) {
+        
+        ArrayList<Player> playersList = new ArrayList<>(players.values());
+        for (Map.Entry<String, Player> entry : this.players.entrySet()){
+            Player player = entry.getValue();
+            player.scoreCalculate(playersList);
+        }
+
+        return null;
     }
 }
