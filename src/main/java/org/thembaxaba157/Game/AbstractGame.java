@@ -46,11 +46,6 @@ public abstract class AbstractGame implements Game{
     }
 }
 
-
-
-
-
-
    private boolean isValidName(String nam) {
         return !players.containsKey(nam);
     }
@@ -102,21 +97,30 @@ public abstract class AbstractGame implements Game{
                     Player player = entry.getValue();
                     player.pickObject();
                 }
-                String results = scoreCalculate(this.players);
-
+                scoreCalculate(this.players);
+                gameStats.showCompleteLeaderboard(this.players);
 
             }
         }
     }
 
-    private String scoreCalculate(HashMap<String, Player> players) {
+    private void scoreCalculate(HashMap<String, Player> players) {
         
         ArrayList<Player> playersList = new ArrayList<>(players.values());
         for (Map.Entry<String, Player> entry : this.players.entrySet()){
             Player player = entry.getValue();
             player.scoreCalculate(playersList);
         }
+        updateStats(playersList);
+        
+    }
 
-        return null;
+    private void updateStats(ArrayList<Player> playersList) {
+        for(Player player : playersList){
+            if(gameStats.isAddScoreLeader(player)){
+                gameStats.changeScoreLeader(player);
+            }
+        }
+
     }
 }

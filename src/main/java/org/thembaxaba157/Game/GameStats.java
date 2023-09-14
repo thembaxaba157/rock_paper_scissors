@@ -1,6 +1,9 @@
 package org.thembaxaba157.Game;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 
 import org.thembaxaba157.Player.Player;
 
@@ -36,7 +39,17 @@ public class GameStats {
     public void changeScoreLeader(Player player){
         if(player.getScore()>hiScore){
             cleanScoreLeader();
-            addLeader(player);
+        }
+        addLeader(player);
+    }
+
+    public void showCompleteLeaderboard(HashMap<String, Player> players) {
+        ArrayList<Player> playersList = new ArrayList<>(players.values());
+        Collections.sort(playersList, Comparator.comparingInt(Player::getScore).reversed());
+
+        System.out.println("Current Leaderboard");
+        for(Player player : playersList){
+            System.out.println(player.getName()+" : "+player.getScore());
         }
     }    
 
