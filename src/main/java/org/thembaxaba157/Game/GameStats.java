@@ -22,7 +22,7 @@ public class GameStats {
     }
 
     public boolean isDraw(){
-        return scoreLeader.size()>1;
+        return scoreLeader.size()>1 || scoreLeader.size()==0;
     }
 
     public ArrayList<String> getScoreLeader() {
@@ -30,7 +30,7 @@ public class GameStats {
     }
 
     public boolean isAddScoreLeader(Player player){
-        return player.getScore()>=this.hiScore;
+        return player.getScore()>=this.hiScore && player.getScore()>0;
     }
 
     private void addLeader(Player player){

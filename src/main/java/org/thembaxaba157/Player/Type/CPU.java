@@ -12,6 +12,7 @@ public class CPU extends AbstractPlayer {
     @Override
     public void pickObject() {
         this.latestPickedWeapon = generateRandomObject();
+        System.out.println("CPU picked "+this.latestPickedWeapon.name());
     }
 
    

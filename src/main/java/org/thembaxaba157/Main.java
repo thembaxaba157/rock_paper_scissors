@@ -12,7 +12,7 @@ public class Main {
             while(true){
                 Game game = AbstractGame.createGame();
                 game.run();
-                if(!game.playAgain());break;
+                if(!game.playAgain())break;
             }
             
             GameInput.closeScanner();

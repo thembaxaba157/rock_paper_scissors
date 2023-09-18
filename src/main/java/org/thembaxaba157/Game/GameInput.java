@@ -19,9 +19,10 @@ public class GameInput {
     public int getInt(String promptMessage){
         while(true){
             System.out.println(promptMessage);
+            String gameInput = gameScanner.nextLine();
             try {
-                int gameInput = gameScanner.nextInt();
-                return gameInput;
+                int numberInput = Integer.parseInt(gameInput);
+                return numberInput;
             } catch (Exception e) {
                 System.out.println("Please Enter a valid value");
             }
